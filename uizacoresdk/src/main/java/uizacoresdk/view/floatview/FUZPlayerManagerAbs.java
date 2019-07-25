@@ -80,6 +80,7 @@ abstract class FUZPlayerManagerAbs {
         if (subtitleList == null || subtitleList.isEmpty()) {
             return mediaSource;
         }
+
         List<SingleSampleMediaSource> singleSampleMediaSourceList = new ArrayList<>();
         for (int i = 0; i < subtitleList.size(); i++) {
             Subtitle subtitle = subtitleList.get(i);
@@ -89,17 +90,33 @@ abstract class FUZPlayerManagerAbs {
                     || subtitle.getUrl().isEmpty()) {
                 continue;
             }
+
             DefaultBandwidthMeter bandwidthMeter2 = new DefaultBandwidthMeter();
             DefaultDataSourceFactory dataSourceFactory =
                     new DefaultDataSourceFactory(context, Constants.USER_AGENT, bandwidthMeter2);
+
+            //Check and identity the mime type of subtitle
+//            String type = subtitle.getMine().toUpperCase(); //for future need to get type from Mime.
+            String type = subtitle.getUrl().substring(subtitle.getUrl().lastIndexOf(".") + 1).toUpperCase();
+            String sampleMimeType = null;
+            switch (type) {
+                case Constants.TYPE_VTT:
+                    sampleMimeType = MimeTypes.TEXT_VTT;
+                    break;
+                case Constants.TYPE_SRT:
+                    sampleMimeType = MimeTypes.APPLICATION_SUBRIP;
+                    break;
+            }
+
             //Text Format Initialization
-            Format textFormat = Format.createTextSampleFormat(null, MimeTypes.TEXT_VTT, null, Format.NO_VALUE,
+            Format textFormat = Format.createTextSampleFormat(null, sampleMimeType, null, Format.NO_VALUE,
                     Format.NO_VALUE, subtitle.getLanguage(), null, Format.OFFSET_SAMPLE_RELATIVE);
             SingleSampleMediaSource textMediaSource =
                     new SingleSampleMediaSource.Factory(dataSourceFactory).createMediaSource(
                             Uri.parse(subtitle.getUrl()), textFormat, C.TIME_UNSET);
             singleSampleMediaSourceList.add(textMediaSource);
         }
+
         MediaSource mediaSourceWithSubtitle = null;
         for (int i = 0; i < singleSampleMediaSourceList.size(); i++) {
             SingleSampleMediaSource singleSampleMediaSource = singleSampleMediaSourceList.get(i);
@@ -110,6 +127,7 @@ abstract class FUZPlayerManagerAbs {
                         new MergingMediaSource(mediaSourceWithSubtitle, singleSampleMediaSource);
             }
         }
+
         return mediaSourceWithSubtitle;
     }
 

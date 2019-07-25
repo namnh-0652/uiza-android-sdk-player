@@ -15,30 +15,39 @@ public class Subtitle {
     @SerializedName("id")
     @Expose
     private String id;
+
     @SerializedName("name")
     @Expose
     private String name;
+
     @SerializedName("type")
     @Expose
     private String type;
+
     @SerializedName("url")
     @Expose
     private String url;
+
     @SerializedName("mine")
     @Expose
     private String mine;
+
     @SerializedName("language")
     @Expose
     private String language;
+
     @SerializedName("isDefault")
     @Expose
     private int isDefault;
+
     @SerializedName("status")
     @Expose
     private @Status int status;
+
     @SerializedName("createAt")
     @Expose
     private String createdAt;
+
     @SerializedName("updateAt")
     @Expose
     private String updatedAt;
