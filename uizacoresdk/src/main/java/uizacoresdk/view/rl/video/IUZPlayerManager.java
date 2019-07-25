@@ -57,9 +57,6 @@ import com.google.android.exoplayer2.upstream.HttpDataSource;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoListener;
-
-import java.io.File;
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -116,10 +113,6 @@ abstract class IUZPlayerManager implements PreviewLoader {
     private DebugCallback debugCallback;
     private ExoPlaybackException exoPlaybackException;
     private DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
-
-    //define type of subtitle that we support
-    private final String TYPE_VTT = "VTT";
-    private final String TYPE_SRT = "SRT";
 
     IUZPlayerManager(final UZVideo uzVideo, String linkPlay, String thumbnailsUrl,
             List<Subtitle> subtitleList) {
@@ -511,27 +504,27 @@ abstract class IUZPlayerManager implements PreviewLoader {
 
             DefaultDataSourceFactory dataSourceFactory =
                     new DefaultDataSourceFactory(context, Constants.USER_AGENT, bandwidthMeter);
-            //Text Format Initialization
-            Format textFormat = null;
-//            String type = subtitle.getMine(); //for future need to get type from Mime.
-            String type = subtitle.getUrl().substring(subtitle.getUrl().lastIndexOf(".") + 1).toUpperCase();
-            switch (type) {
-                case TYPE_VTT:
-                    textFormat = Format.createTextSampleFormat(null, MimeTypes.TEXT_VTT, null, Format.NO_VALUE,
-                    Format.NO_VALUE, subtitle.getLanguage(), null, Format.OFFSET_SAMPLE_RELATIVE);
-                    break;
-                case TYPE_SRT:
-                    textFormat = Format.createTextSampleFormat(null, MimeTypes.APPLICATION_SUBRIP,
-                            null, Format.NO_VALUE, Format.NO_VALUE, subtitle.getLanguage(), null, Format.OFFSET_SAMPLE_RELATIVE);
-                    break;
 
+            //Check and identity the mime type of subtitle
+//            String type = subtitle.getMine().toUpperCase(); //for future need to get type from Mime.
+            String type = subtitle.getUrl().substring(subtitle.getUrl().lastIndexOf(".") + 1).toUpperCase();
+            String sampleMimeType = null;
+            switch (type) {
+                case Constants.TYPE_VTT:
+                    sampleMimeType = MimeTypes.TEXT_VTT;
+                    break;
+                case Constants.TYPE_SRT:
+                    sampleMimeType = MimeTypes.APPLICATION_SUBRIP;
+                    break;
             }
 
+            //Text Format Initialization
+            Format textFormat = Format.createTextSampleFormat(null, sampleMimeType, null, Format.NO_VALUE,
+                    Format.NO_VALUE, subtitle.getLanguage(), null, Format.OFFSET_SAMPLE_RELATIVE);
             MediaSource textMediaSource =
                     new SingleSampleMediaSource.Factory(dataSourceFactory).createMediaSource(
                             Uri.parse(subtitle.getUrl()), textFormat, C.TIME_UNSET);
 
-            // Re-order default subtitle right after video source
             // Re-order default subtitle right after video source
             if (subtitle.getIsDefault() == 1) {
                 mergedMediaSource.add(1, textMediaSource);
