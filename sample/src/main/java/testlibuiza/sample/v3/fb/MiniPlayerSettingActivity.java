@@ -11,8 +11,8 @@ import android.widget.EditText;
 import android.widget.Switch;
 import io.uiza.core.util.constant.Constants;
 import io.uiza.core.view.LToast;
+import io.uiza.player.util.UZUtil;
 import testlibuiza.R;
-import uizacoresdk.util.UZUtil;
 
 public class MiniPlayerSettingActivity extends AppCompatActivity implements View.OnClickListener {
     private Activity activity;

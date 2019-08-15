@@ -23,19 +23,19 @@ import io.uiza.core.api.client.UzRestClient;
 import io.uiza.core.api.response.BasePaginationResponse;
 import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.api.util.ApiSubscriber;
-import io.uiza.core.util.UzDialogUtil;
 import io.uiza.core.util.LLog;
+import io.uiza.core.util.UzDialogUtil;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.util.constant.Constants;
 import io.uiza.core.view.LToast;
+import io.uiza.player.interfaces.IOnBackPressed;
+import io.uiza.player.util.UZData;
+import io.uiza.player.util.UZUtil;
 import java.util.ArrayList;
 import java.util.List;
 import uiza.R;
 import uiza.app.LSApplication;
 import uiza.v4.HomeV4CanSlideActivity;
-import uizacoresdk.interfaces.IOnBackPressed;
-import uizacoresdk.util.UZData;
-import uizacoresdk.util.UZUtil;
 
 public class FrmLive extends Fragment implements IOnBackPressed {
     private final String TAG = getClass().getSimpleName();

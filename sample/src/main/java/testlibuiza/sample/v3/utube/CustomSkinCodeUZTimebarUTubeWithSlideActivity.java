@@ -13,9 +13,9 @@ import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.view.draggablepanel.DraggableListener;
 import io.uiza.core.view.draggablepanel.DraggablePanel;
+import io.uiza.player.interfaces.IOnBackPressed;
+import io.uiza.player.util.UZUtil;
 import testlibuiza.R;
-import uizacoresdk.interfaces.IOnBackPressed;
-import uizacoresdk.util.UZUtil;
 
 /**
  * Created by loitp on 9/1/2019.

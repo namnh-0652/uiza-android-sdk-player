@@ -23,26 +23,26 @@ import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.exception.UzException;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.util.constant.Constants;
+import io.uiza.player.interfaces.CallbackUZTimebar;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.UzPlayerView;
+import io.uiza.player.view.rl.video.UzVideo;
 import testlibuiza.R;
-import uizacoresdk.interfaces.CallbackUZTimebar;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.UZPlayerView;
-import uizacoresdk.view.rl.video.UZVideo;
 
 public class FrmUTVideoTop extends Fragment implements UZCallback, UZItemClick {
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
     private View shadow;
 
-    public UZVideo getUZVideo() {
+    public UzVideo getUZVideo() {
         return uzVideo;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        uzVideo = (UZVideo) view.findViewById(R.id.uiza_video);
+        uzVideo = (UzVideo) view.findViewById(R.id.uiza_video);
         uzVideo.setAutoSwitchItemPlaylistFolder(false);
         uzVideo.addUZCallback(this);
         uzVideo.addVideoListener(new VideoListener() {
@@ -51,7 +51,7 @@ public class FrmUTVideoTop extends Fragment implements UZCallback, UZItemClick {
                 calSize(width, height);
             }
         });
-        uzVideo.addOnTouchEvent(new UZPlayerView.OnTouchEvent() {
+        uzVideo.addOnTouchEvent(new UzPlayerView.OnTouchEvent() {
             @Override
             public void onSingleTapConfirmed(float x, float y) {
                 toggleControllerExceptUZTimebar();

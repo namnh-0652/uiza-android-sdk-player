@@ -14,12 +14,12 @@ import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.exception.UzException;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.view.seekbar.UzVerticalSeekBar;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.rl.video.UzVideo;
 import testlibuiza.R;
 import testlibuiza.app.LSApplication;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.rl.video.UZVideo;
 
 /**
  * Created by loitp on 9/1/2019.
@@ -27,7 +27,7 @@ import uizacoresdk.view.rl.video.UZVideo;
 
 public class VolumeActivity extends AppCompatActivity implements UZCallback, UZItemClick {
     private Activity activity;
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
     private SeekBar sb;
     private UzVerticalSeekBar sb1;
     private UzVerticalSeekBar sb2;
@@ -40,7 +40,7 @@ public class VolumeActivity extends AppCompatActivity implements UZCallback, UZI
         UZUtil.setCurrentPlayerId(R.layout.uz_player_skin_1);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volume);
-        uzVideo = (UZVideo) findViewById(R.id.uiza_video);
+        uzVideo = (UzVideo) findViewById(R.id.uiza_video);
         sb = (SeekBar) findViewById(R.id.sb);
         sb1 = (UzVerticalSeekBar) findViewById(R.id.sb_1);
         sb2 = (UzVerticalSeekBar) findViewById(R.id.sb_2);

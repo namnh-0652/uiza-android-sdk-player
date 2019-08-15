@@ -18,25 +18,25 @@ import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.exception.UzException;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.util.constant.Constants;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.UzPlayerView;
+import io.uiza.player.view.rl.video.UzVideo;
 import testlibuiza.R;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.UZPlayerView;
-import uizacoresdk.view.rl.video.UZVideo;
 
-public class FrmVideoTop extends Fragment implements UZCallback, UZItemClick, UZPlayerView.ControllerStateCallback {
+public class FrmVideoTop extends Fragment implements UZCallback, UZItemClick, UzPlayerView.ControllerStateCallback {
     private final String TAG = getClass().getSimpleName();
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
 
-    public UZVideo getUZVideo() {
+    public UzVideo getUZVideo() {
         return uzVideo;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        uzVideo = (UZVideo) view.findViewById(R.id.uiza_video);
+        uzVideo = (UzVideo) view.findViewById(R.id.uiza_video);
         uzVideo.setAutoSwitchItemPlaylistFolder(false);
         uzVideo.addUZCallback(this);
         uzVideo.addItemClick(this);

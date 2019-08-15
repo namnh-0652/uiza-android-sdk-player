@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 import com.google.gson.Gson;
 import io.uiza.core.util.constant.Constants;
-import uizacoresdk.util.UZUtil;
+import io.uiza.player.util.UZUtil;
 
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();

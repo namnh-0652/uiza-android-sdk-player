@@ -15,19 +15,19 @@ import com.google.android.exoplayer2.video.VideoListener;
 import io.uiza.core.api.response.linkplay.LinkPlay;
 import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.exception.UzException;
-import io.uiza.core.util.UzDialogUtil;
 import io.uiza.core.util.LLog;
 import io.uiza.core.util.UzAnimationUtil;
+import io.uiza.core.util.UzDialogUtil;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.view.autosize.UzImageButton;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.dlg.hq.UZItem;
+import io.uiza.player.view.rl.video.UzVideo;
 import java.util.List;
 import testlibuiza.R;
 import testlibuiza.app.LSApplication;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.dlg.hq.UZItem;
-import uizacoresdk.view.rl.video.UZVideo;
 
 /**
  * Created by loitp on 12/10/2018.
@@ -35,7 +35,7 @@ import uizacoresdk.view.rl.video.UZVideo;
 
 public class CustomHQActivity extends AppCompatActivity implements UZCallback, UZItemClick {
     private Activity activity;
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
     private Button btCustomHq;
     private UzImageButton uzibCustomAudio;
     private LinearLayout llListHq;
@@ -48,7 +48,7 @@ public class CustomHQActivity extends AppCompatActivity implements UZCallback, U
         UZUtil.setCurrentPlayerId(R.layout.uiza_controller_hq_custom_main);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uiza_custom_hq);
-        uzVideo = (UZVideo) findViewById(R.id.uiza_video);
+        uzVideo = (UzVideo) findViewById(R.id.uiza_video);
         btCustomHq = (Button) uzVideo.findViewById(R.id.uzib_custom_hq);
         uzibCustomAudio = (UzImageButton) uzVideo.findViewById(R.id.uzib_custom_audio);
         llListHq = (LinearLayout) findViewById(R.id.ll_list_hq);

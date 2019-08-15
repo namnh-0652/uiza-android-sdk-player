@@ -15,21 +15,21 @@ import io.uiza.core.api.response.linkplay.LinkPlay;
 import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.exception.UzException;
 import io.uiza.core.util.UzDisplayUtil;
+import io.uiza.player.interfaces.CallbackUZTimebar;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.UzPlayerView;
+import io.uiza.player.view.rl.video.UzVideo;
 import testlibuiza.R;
 import testlibuiza.app.LSApplication;
-import uizacoresdk.interfaces.CallbackUZTimebar;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.UZPlayerView;
-import uizacoresdk.view.rl.video.UZVideo;
 
 /**
  * Created by loitp on 9/1/2019.
  */
 
 public class CustomSkinCodeUZTimebarUTubeActivity extends AppCompatActivity implements UZCallback, UZItemClick {
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
     private Activity activity;
     private View shadow;
 
@@ -40,9 +40,9 @@ public class CustomSkinCodeUZTimebarUTubeActivity extends AppCompatActivity impl
         UZUtil.setCurrentPlayerId(R.layout.framgia_controller_skin_custom_main_1);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uiza_custom_skin_u_tube);
-        uzVideo = (UZVideo) findViewById(R.id.uiza_video);
+        uzVideo = (UzVideo) findViewById(R.id.uiza_video);
         uzVideo.addUZCallback(this);
-        uzVideo.addOnTouchEvent(new UZPlayerView.OnTouchEvent() {
+        uzVideo.addOnTouchEvent(new UzPlayerView.OnTouchEvent() {
             @Override
             public void onSingleTapConfirmed(float x, float y) {
                 toggleControllerExceptUZTimebar();

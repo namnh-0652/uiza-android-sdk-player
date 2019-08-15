@@ -6,6 +6,7 @@ import android.content.Context;
 import io.uiza.broadcast.config.LiveConfig;
 import io.uiza.core.api.client.UzRestClient;
 import io.uiza.core.util.UzCoreUtil;
+import io.uiza.core.util.constant.Constants;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +14,6 @@ import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
-import io.uiza.core.util.constant.Constants;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({UzRestClient.class, UzCoreUtil.class})

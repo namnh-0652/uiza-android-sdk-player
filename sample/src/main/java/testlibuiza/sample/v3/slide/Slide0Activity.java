@@ -11,24 +11,24 @@ import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.exception.UzException;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.util.constant.Constants;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.interfaces.ProgressCallback;
+import io.uiza.player.mini.draggable.VDHView;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.UzPlayerView;
+import io.uiza.player.view.rl.video.UzVideo;
 import testlibuiza.R;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.listerner.ProgressCallback;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.UZPlayerView;
-import uizacoresdk.view.rl.video.UZVideo;
-import uizacoresdk.view.vdh.VDHView;
 
-public class Slide0Activity extends AppCompatActivity implements VDHView.Callback, UZCallback, UZItemClick, UZPlayerView.OnTouchEvent, UZPlayerView.ControllerStateCallback, View.OnClickListener, ProgressCallback {
+public class Slide0Activity extends AppCompatActivity implements VDHView.Callback, UZCallback, UZItemClick, UzPlayerView.OnTouchEvent, UzPlayerView.ControllerStateCallback, View.OnClickListener, ProgressCallback {
     private final String TAG = "TAG" + getClass().getSimpleName();
     private Activity activity;
     private VDHView vdhv;
     private TextView tv0, tv1, tv2, tv3;
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
 
     private void findViews() {
-        uzVideo = (UZVideo) findViewById(R.id.uiza_video);
+        uzVideo = (UzVideo) findViewById(R.id.uiza_video);
         vdhv = (VDHView) findViewById(R.id.vdhv);
         tv0 = (TextView) findViewById(R.id.tv_0);
         tv1 = (TextView) findViewById(R.id.tv_1);
@@ -120,7 +120,7 @@ public class Slide0Activity extends AppCompatActivity implements VDHView.Callbac
     @Override
     public void onOverScroll(VDHView.State state, VDHView.Part part) {
         uzVideo.pauseVideo();
-        vdhv.dissappear();
+        vdhv.disAppear();
     }
 
     @Override

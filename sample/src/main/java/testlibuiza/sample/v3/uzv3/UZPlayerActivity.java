@@ -12,13 +12,13 @@ import io.uiza.core.api.response.linkplay.LinkPlay;
 import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.exception.UzException;
 import io.uiza.core.util.constant.Constants;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.interfaces.ProgressCallback;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.UzPlayerView;
+import io.uiza.player.view.rl.video.UzVideo;
 import testlibuiza.R;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.listerner.ProgressCallback;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.UZPlayerView;
-import uizacoresdk.view.rl.video.UZVideo;
 
 /**
  * Created by loitp on 27/2/2019.
@@ -26,7 +26,7 @@ import uizacoresdk.view.rl.video.UZVideo;
 
 public class UZPlayerActivity extends AppCompatActivity implements UZCallback, UZItemClick {
     private Activity activity;
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
     private TextView tvProgressAd;
     private TextView tvProgressVideo;
     private TextView tvStateVideo;
@@ -41,7 +41,7 @@ public class UZPlayerActivity extends AppCompatActivity implements UZCallback, U
         UZUtil.setCurrentPlayerId(R.layout.uz_player_skin_1);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.v3_cannot_slide_player);
-        uzVideo = (UZVideo) findViewById(R.id.uiza_video);
+        uzVideo = (UzVideo) findViewById(R.id.uiza_video);
         uzVideo.setAutoSwitchItemPlaylistFolder(true);
         uzVideo.setAutoStart(true);
         tvProgressAd = (TextView) findViewById(R.id.tv_progress_ad);
@@ -74,7 +74,7 @@ public class UZPlayerActivity extends AppCompatActivity implements UZCallback, U
         } else {
             UZUtil.initPlaylistFolder(activity, uzVideo, metadataId);
         }
-        uzVideo.addOnTouchEvent(new UZPlayerView.OnTouchEvent() {
+        uzVideo.addOnTouchEvent(new UzPlayerView.OnTouchEvent() {
             @Override
             public void onSingleTapConfirmed(float x, float y) {
                 tvClickEvent.setText("onSingleTapConfirmed");

@@ -25,6 +25,8 @@ import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.view.LToast;
 import io.uiza.core.view.draggablepanel.DraggableListener;
 import io.uiza.core.view.draggablepanel.DraggablePanel;
+import io.uiza.player.interfaces.IOnBackPressed;
+import io.uiza.player.util.UZUtil;
 import uiza.R;
 import uiza.v4.categories.FrmCategories;
 import uiza.v4.entities.FrmEntities;
@@ -32,8 +34,6 @@ import uiza.v4.home.FrmHome;
 import uiza.v4.live.FrmLive;
 import uiza.v4.login.FrmLogin;
 import uiza.v4.search.FrmSearch;
-import uizacoresdk.interfaces.IOnBackPressed;
-import uizacoresdk.util.UZUtil;
 
 public class HomeV4CanSlideActivity extends AppCompatActivity {
     private final String TAG = getClass().getSimpleName();

@@ -17,10 +17,10 @@ import android.widget.RadioGroup;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.util.constant.Constants;
 import io.uiza.core.view.LToast;
+import io.uiza.player.util.UZUtil;
 import uiza.R;
 import uiza.app.LSApplication;
 import uiza.option.OptionActivity;
-import uizacoresdk.util.UZUtil;
 
 public class SplashActivity extends AppCompatActivity {
     private final String TAG = getClass().getSimpleName();

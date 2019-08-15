@@ -17,18 +17,18 @@ import io.uiza.core.api.response.linkplay.LinkPlay;
 import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.exception.UzException;
 import io.uiza.core.util.UzDisplayUtil;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.UzPlayerView;
+import io.uiza.player.view.rl.video.UzVideo;
 import uiza.R;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.UZPlayerView;
-import uizacoresdk.view.rl.video.UZVideo;
 
 public class FrmVideoTop extends Fragment implements UZCallback, UZItemClick {
     private final String TAG = getClass().getSimpleName();
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
 
-    public UZVideo getUZVideo() {
+    public UzVideo getUZVideo() {
         return uzVideo;
     }
 
@@ -74,7 +74,7 @@ public class FrmVideoTop extends Fragment implements UZCallback, UZItemClick {
         if (uzVideo == null || uzVideo.getPlayer() == null) {
             return;
         }
-        uzVideo.addControllerStateCallback(new UZPlayerView.ControllerStateCallback() {
+        uzVideo.addControllerStateCallback(new UzPlayerView.ControllerStateCallback() {
             @Override
             public void onVisibilityChange(boolean isShow) {
                 if (((HomeV4CanSlideActivity) getActivity()).getDraggablePanel() != null

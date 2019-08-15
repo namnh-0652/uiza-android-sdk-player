@@ -16,12 +16,12 @@ import io.uiza.core.api.response.BasePaginationResponse;
 import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.api.util.ApiSubscriber;
 import io.uiza.core.util.constant.Constants;
+import io.uiza.player.util.UZData;
+import io.uiza.player.util.UZUtil;
 import java.util.ArrayList;
 import java.util.List;
 import testlibuiza.R;
 import testlibuiza.app.LSApplication;
-import uizacoresdk.util.UZData;
-import uizacoresdk.util.UZUtil;
 
 public class FBListVideoActivity extends AppCompatActivity {
     private Activity activity;

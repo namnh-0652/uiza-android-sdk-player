@@ -23,10 +23,10 @@ import io.uiza.core.util.LLog;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.util.constant.Constants;
 import io.uiza.core.view.LToast;
+import io.uiza.player.util.UZData;
 import java.util.List;
 import testlibuiza.R;
 import testlibuiza.app.LSApplication;
-import uizacoresdk.util.UZData;
 
 public class UZTestAPIActivity extends AppCompatActivity implements View.OnClickListener {
 

@@ -14,10 +14,10 @@ import android.widget.TextView;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.util.constant.Constants;
 import io.uiza.core.view.LToast;
+import io.uiza.player.util.UZUtil;
 import testlibuiza.app.BuildConfig;
 import testlibuiza.app.LSApplication;
 import testlibuiza.app.R;
-import uizacoresdk.util.UZUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnFocusChangeListener, View.OnClickListener {
     private final String TAG = getClass().getSimpleName();

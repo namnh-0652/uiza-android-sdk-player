@@ -13,10 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.view.LToast;
+import io.uiza.player.interfaces.IOnBackPressed;
+import io.uiza.player.util.UZUtil;
 import testlibuiza.R;
 import testlibuiza.app.LSApplication;
-import uizacoresdk.interfaces.IOnBackPressed;
-import uizacoresdk.util.UZUtil;
 
 public class FrmUTHome extends Fragment implements IOnBackPressed {
     private final String entityIdDefaultVOD = LSApplication.entityIdDefaultVOD;

@@ -19,8 +19,8 @@ import io.uiza.core.util.LLog;
 import io.uiza.core.util.SentryUtil;
 import io.uiza.core.util.UzDateTimeUtil;
 import io.uiza.core.util.UzDisplayUtil;
-import uizacoresdk.R;
-import uizacoresdk.util.UZData;
+import io.uiza.player.R;
+import io.uiza.player.util.UZData;
 
 /**
  * Created by www.muathu@gmail.com on 18/1/2019.

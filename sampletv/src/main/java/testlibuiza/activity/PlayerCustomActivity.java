@@ -14,26 +14,26 @@ import com.daimajia.androidanimations.library.Techniques;
 import io.uiza.core.api.response.linkplay.LinkPlay;
 import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.exception.UzException;
-import io.uiza.core.util.UzDialogUtil;
 import io.uiza.core.util.LLog;
 import io.uiza.core.util.UzAnimationUtil;
+import io.uiza.core.util.UzDialogUtil;
 import io.uiza.core.view.snappysmoothscroller.SnapType;
 import io.uiza.core.view.snappysmoothscroller.SnappyLinearLayoutManager;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.interfaces.UZTVCallback;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.UzPlayerView;
+import io.uiza.player.view.rl.video.UzVideo;
 import java.util.ArrayList;
 import java.util.List;
 import testlibuiza.app.LSApplication;
 import testlibuiza.app.R;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.interfaces.UZTVCallback;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.UZPlayerView;
-import uizacoresdk.view.rl.video.UZVideo;
 
 public class PlayerCustomActivity extends AppCompatActivity implements UZCallback, UZTVCallback, UZItemClick {
     private final String TAG = getClass().getSimpleName();
     private Activity activity;
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
     private RelativeLayout rl;
     private RecyclerView recyclerView;
     private AdapterDummy adapterDummy;
@@ -49,12 +49,12 @@ public class PlayerCustomActivity extends AppCompatActivity implements UZCallbac
         setContentView(R.layout.activity_player_custom);
         rl = (RelativeLayout) findViewById(R.id.rl);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        uzVideo = (UZVideo) findViewById(R.id.uiza_video);
+        uzVideo = (UzVideo) findViewById(R.id.uiza_video);
         uzVideo.addUZCallback(this);
         uzVideo.addUZTVCallback(this);
         uzVideo.addItemClick(this);
         uzVideo.setDefaultUseController(false);
-        uzVideo.addOnTouchEvent(new UZPlayerView.OnTouchEvent() {
+        uzVideo.addOnTouchEvent(new UzPlayerView.OnTouchEvent() {
             @Override
             public void onSingleTapConfirmed(float x, float y) {
             }

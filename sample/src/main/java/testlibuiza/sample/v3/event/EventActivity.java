@@ -24,17 +24,17 @@ import io.uiza.core.api.response.linkplay.LinkPlay;
 import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.exception.UzException;
 import io.uiza.core.util.UzDisplayUtil;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.interfaces.UZLiveContentCallback;
+import io.uiza.player.interfaces.ProgressCallback;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.UzPlayerView;
+import io.uiza.player.ads.UzAdPlayerCallback;
+import io.uiza.player.view.rl.video.UzVideo;
 import java.util.List;
 import testlibuiza.R;
 import testlibuiza.app.LSApplication;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.interfaces.UZLiveContentCallback;
-import uizacoresdk.listerner.ProgressCallback;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.UZPlayerView;
-import uizacoresdk.view.rl.video.UZAdPlayerCallback;
-import uizacoresdk.view.rl.video.UZVideo;
 
 /**
  * Created by loitp on 1/9/2019.
@@ -42,7 +42,7 @@ import uizacoresdk.view.rl.video.UZVideo;
 
 public class EventActivity extends AppCompatActivity {
     private Activity activity;
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
     private TextView tvUzCallback;
     private TextView tvAudioListener;
     private TextView tvVideoListener;
@@ -63,7 +63,7 @@ public class EventActivity extends AppCompatActivity {
         UZUtil.setCurrentPlayerId(R.layout.uz_player_skin_1);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
-        uzVideo = (UZVideo) findViewById(R.id.uiza_video);
+        uzVideo = (UzVideo) findViewById(R.id.uiza_video);
         tvUzCallback = (TextView) findViewById(R.id.tv_uz_callback);
         tvAudioListener = (TextView) findViewById(R.id.tv_audio_listener);
         tvVideoListener = (TextView) findViewById(R.id.tv_video_listener);
@@ -200,15 +200,15 @@ public class EventActivity extends AppCompatActivity {
                 tvTextOutput.setText("onCues");
             }
         });
-        uzVideo.addVideoAdPlayerCallback(new UZAdPlayerCallback() {
+        uzVideo.addVideoAdPlayerCallback(new UzAdPlayerCallback() {
             @Override
             public void onPlay() {
                 tvAd.setText("onPlay");
             }
 
             @Override
-            public void onVolumeChanged(int i) {
-                tvAd.setText("onVolumeChanged " + i);
+            public void onVolumeChanged(int level) {
+                tvAd.setText("onVolumeChanged " + level);
             }
 
             @Override
@@ -241,7 +241,7 @@ public class EventActivity extends AppCompatActivity {
                 tvAd.setText("onBuffering");
             }
         });
-        uzVideo.addControllerStateCallback(new UZPlayerView.ControllerStateCallback() {
+        uzVideo.addControllerStateCallback(new UzPlayerView.ControllerStateCallback() {
             @Override
             public void onVisibilityChange(boolean isShow) {
                 tvController.setText("onVisibilityChange " + isShow);
@@ -273,7 +273,7 @@ public class EventActivity extends AppCompatActivity {
                 tvProgress.setText("onBufferProgress " + bufferedPosition + "/" + duration);
             }
         });
-        uzVideo.addOnTouchEvent(new UZPlayerView.OnTouchEvent() {
+        uzVideo.addOnTouchEvent(new UzPlayerView.OnTouchEvent() {
             @Override
             public void onSingleTapConfirmed(float x, float y) {
                 tvTouch.setText("onSingleTapConfirmed");

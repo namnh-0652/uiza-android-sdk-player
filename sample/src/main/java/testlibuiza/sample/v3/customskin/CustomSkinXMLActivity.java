@@ -11,23 +11,23 @@ import com.daimajia.androidanimations.library.Techniques;
 import io.uiza.core.api.response.linkplay.LinkPlay;
 import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.exception.UzException;
-import io.uiza.core.util.UzDialogUtil;
 import io.uiza.core.util.UzAnimationUtil;
+import io.uiza.core.util.UzDialogUtil;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.util.constant.Constants;
 import io.uiza.core.view.LToast;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.rl.video.UzVideo;
 import testlibuiza.R;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.rl.video.UZVideo;
 
 /**
  * Created by loitp on 9/1/2019.
  */
 
 public class CustomSkinXMLActivity extends AppCompatActivity implements UZCallback, UZItemClick {
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
     private Activity activity;
 
     @Override
@@ -37,7 +37,7 @@ public class CustomSkinXMLActivity extends AppCompatActivity implements UZCallba
         UZUtil.setCurrentPlayerId(R.layout.uiza_controller_skin_custom_main);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uiza_custom_skin_xml);
-        uzVideo = (UZVideo) findViewById(R.id.uiza_video);
+        uzVideo = (UzVideo) findViewById(R.id.uiza_video);
         uzVideo.addUZCallback(this);
         uzVideo.addItemClick(this);
 

@@ -18,16 +18,16 @@ import io.uiza.core.api.response.linkplay.LinkPlay;
 import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.api.util.ApiSubscriber;
 import io.uiza.core.exception.UzException;
-import io.uiza.core.util.UzImageUtil;
 import io.uiza.core.util.UzDisplayUtil;
+import io.uiza.core.util.UzImageUtil;
 import io.uiza.core.util.constant.Constants;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.util.UZData;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.rl.video.UzVideo;
 import java.util.List;
 import testlibuiza.R;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.util.UZData;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.rl.video.UZVideo;
 
 /**
  * Created by loitp on 4/1/2019.
@@ -37,7 +37,7 @@ public class FBVideoActivity extends AppCompatActivity implements UZCallback, UZ
     private final String TAG = getClass().getSimpleName();
     public final static String TAG_IS_MINI_PLAYER_INIT_SUCCESS = "TAG_IS_MINI_PLAYER_INIT_SUCCESS";
     private static FBVideoActivity activity;
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
     private Button btMini;
     private TextView tvLoadingMiniPlayer;
     private TextView tv;

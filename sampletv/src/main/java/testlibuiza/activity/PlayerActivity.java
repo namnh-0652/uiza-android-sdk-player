@@ -20,20 +20,20 @@ import io.uiza.core.util.UzAnimationUtil;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.util.constant.Constants;
 import io.uiza.core.view.autosize.UzImageButton;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.interfaces.UZTVCallback;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.UzPlayerView;
+import io.uiza.player.view.dlg.hq.UZItem;
+import io.uiza.player.view.rl.video.UzVideo;
 import java.util.List;
 import testlibuiza.app.R;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.interfaces.UZTVCallback;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.UZPlayerView;
-import uizacoresdk.view.dlg.hq.UZItem;
-import uizacoresdk.view.rl.video.UZVideo;
 
-public class PlayerActivity extends AppCompatActivity implements UZCallback, UZTVCallback, UZPlayerView.ControllerStateCallback, UZItemClick {
+public class PlayerActivity extends AppCompatActivity implements UZCallback, UZTVCallback, UzPlayerView.ControllerStateCallback, UZItemClick {
     private final String TAG = getClass().getSimpleName();
     private Activity activity;
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
     private UzImageButton uzibCustomHq;
     private UzImageButton uzibCustomAudio;
     private ScrollView sv;
@@ -56,7 +56,7 @@ public class PlayerActivity extends AppCompatActivity implements UZCallback, UZT
         setContentView(R.layout.activity_player);
         sv = (ScrollView) findViewById(R.id.sv);
         llListHq = (LinearLayout) findViewById(R.id.ll_list_hq);
-        uzVideo = (UZVideo) findViewById(R.id.uiza_video);
+        uzVideo = (UzVideo) findViewById(R.id.uiza_video);
         uzibCustomHq = (UzImageButton) uzVideo.findViewById(R.id.uzib_custom_hq);
         uzibCustomAudio = (UzImageButton) uzVideo.findViewById(R.id.uzib_custom_audio);
 

@@ -8,8 +8,8 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatImageButton;
 import android.util.AttributeSet;
 import io.uiza.core.R;
-import io.uiza.core.util.UzConvertUtils;
 import io.uiza.core.util.UzCommonUtil;
+import io.uiza.core.util.UzConvertUtils;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.util.constant.Constants;
 

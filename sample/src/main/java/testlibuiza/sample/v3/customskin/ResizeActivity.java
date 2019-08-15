@@ -12,20 +12,20 @@ import io.uiza.core.api.response.linkplay.LinkPlay;
 import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.exception.UzException;
 import io.uiza.core.util.UzDisplayUtil;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.rl.video.UzVideo;
 import java.util.Random;
 import testlibuiza.R;
 import testlibuiza.app.LSApplication;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.rl.video.UZVideo;
 
 /**
  * Created by loitp on 5/3/2019.
  */
 
 public class ResizeActivity extends AppCompatActivity implements UZCallback, UZItemClick {
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
     private Activity activity;
 
     @Override
@@ -35,7 +35,7 @@ public class ResizeActivity extends AppCompatActivity implements UZCallback, UZI
         UZUtil.setCurrentPlayerId(R.layout.uz_player_skin_1);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resize);
-        uzVideo = (UZVideo) findViewById(R.id.uiza_video);
+        uzVideo = (UzVideo) findViewById(R.id.uiza_video);
         uzVideo.addUZCallback(this);
         uzVideo.addItemClick(this);
 

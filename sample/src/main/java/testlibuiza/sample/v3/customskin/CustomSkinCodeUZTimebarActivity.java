@@ -13,11 +13,11 @@ import io.uiza.core.api.response.video.VideoData;
 import io.uiza.core.exception.UzException;
 import io.uiza.core.util.UzDisplayUtil;
 import io.uiza.core.util.constant.Constants;
+import io.uiza.player.interfaces.UZCallback;
+import io.uiza.player.interfaces.UZItemClick;
+import io.uiza.player.util.UZUtil;
+import io.uiza.player.view.rl.video.UzVideo;
 import testlibuiza.R;
-import uizacoresdk.interfaces.UZCallback;
-import uizacoresdk.interfaces.UZItemClick;
-import uizacoresdk.util.UZUtil;
-import uizacoresdk.view.rl.video.UZVideo;
 
 /**
  * Created by loitp on 27/2/2019.
@@ -26,7 +26,7 @@ import uizacoresdk.view.rl.video.UZVideo;
 public class CustomSkinCodeUZTimebarActivity extends AppCompatActivity implements UZCallback, UZItemClick {
     private final String TAG = getClass().getSimpleName();
     private Activity activity;
-    private UZVideo uzVideo;
+    private UzVideo uzVideo;
     private View shadow;
     private LinearLayout ll;
     private ProgressBar pb;
@@ -38,7 +38,7 @@ public class CustomSkinCodeUZTimebarActivity extends AppCompatActivity implement
         UZUtil.setCurrentPlayerId(R.layout.framgia_controller_skin_custom_main_1);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uiza_custom_skin_code_uz_timebar);
-        uzVideo = (UZVideo) findViewById(R.id.uiza_video);
+        uzVideo = (UzVideo) findViewById(R.id.uiza_video);
         ll = (LinearLayout) findViewById(R.id.ll);
         UzDisplayUtil.setMarginDimen(ll, 0, -uzVideo.getPixelAdded() / 2, 0, 0);
         pb = (ProgressBar) findViewById(R.id.p);
